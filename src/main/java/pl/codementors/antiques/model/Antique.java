@@ -35,6 +35,13 @@ public class Antique {
     public Antique() {
     }
 
+    public Antique(int yearOfProduction, Country country, int price, Antique.availability availability) {
+        this.yearOfProduction = yearOfProduction;
+        this.country = country;
+        this.price = price;
+        this.availability = availability;
+    }
+
     public int getId() {
         return id;
     }

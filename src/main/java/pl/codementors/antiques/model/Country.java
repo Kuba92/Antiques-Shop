@@ -14,6 +14,10 @@ public class Country {
     @Column
     private String name;
 
+    public Country(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
