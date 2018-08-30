@@ -7,9 +7,9 @@ import javax.persistence.*;
 @Table(name = "antiques")
 public class Antique {
 
-    public enum availability{
+    public enum Availability{
         AVALIBLE,
-        NOT_AVALIBLE,
+        NOT_AVALIBLE
     }
 
     @Id
@@ -28,14 +28,14 @@ public class Antique {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private availability availability;
+    private Availability availability;
 
 
 
     public Antique() {
     }
 
-    public Antique(int yearOfProduction, Country country, int price, Antique.availability availability) {
+    public Antique(int yearOfProduction, Country country, int price, Availability availability) {
         this.yearOfProduction = yearOfProduction;
         this.country = country;
         this.price = price;
@@ -75,11 +75,11 @@ public class Antique {
         this.price = price;
     }
 
-    public Antique.availability getAvailability() {
+    public Availability getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Antique.availability availability) {
+    public void setAvailability(Availability availability) {
         this.availability = availability;
     }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        template="/template.xhtml">
+    <f:metadata>
+        <f:viewParam name="antiqueId" value="#{antiqueEdit.antiqueId}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="country" for="country"/>
+                <h:selectOneListbox id="country" value="#{antiqueEdit.antique.country}" converter="countriesConverter">
+                    <f:selectItems value="#{antiqueEdit.countries}" />
+                </h:selectOneListbox>
+                <h:outputLabel value="price" for="price"/>
+                <h:inputText id="price" value="#{antiqueEdit.antique.price}"/>
+                <h:outputLabel value="yearOfProduction" for="yearOfProduction"/>
+                <h:inputText id="yearOfProduction" value="#{antiqueEdit.antique.yearOfProduction}"/>
+                <h:outputLabel value="is avalible" for="availability"/>
+                <h:selectOneRadio id="availability" value="#{antiqueEdit.antique.availability}">
+                    <f:selectItems value="#{antiqueEdit.availability}"/>
+                </h:selectOneRadio>
+            </h:panelGrid>
+            <h:commandButton actionListener="#{antiqueEdit.saveAntique}" value="save" action="antiques_list"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

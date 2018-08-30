@@ -39,11 +39,11 @@ public class AntiqueDataStoreContext {
             Country france = new Country("France");
             em.persist(france);
 
-            Antique firstAntique = new Antique(1507, italy, 100000, Antique.availability.AVALIBLE);
+            Antique firstAntique = new Antique(1507, italy, 100000, Antique.Availability.AVALIBLE);
             em.persist(firstAntique);
-            Antique secondAntique = new Antique(1811, argentina, 1234555, Antique.availability.AVALIBLE);
+            Antique secondAntique = new Antique(1811, argentina, 1234555, Antique.Availability.AVALIBLE);
             em.persist(secondAntique);
-            Antique thirdAntique = new Antique(1410, china, 642, Antique.availability.AVALIBLE);
+            Antique thirdAntique = new Antique(1410, china, 642, Antique.Availability.AVALIBLE);
             em.persist(thirdAntique);
         }
     }
