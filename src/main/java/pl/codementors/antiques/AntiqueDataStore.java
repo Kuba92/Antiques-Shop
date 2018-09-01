@@ -3,6 +3,7 @@ package pl.codementors.antiques;
 
 import pl.codementors.antiques.model.Antique;
 import pl.codementors.antiques.model.Country;
+import pl.codementors.antiques.model.Order;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -57,4 +58,7 @@ public class AntiqueDataStore {
         return em.find(Country.class, id);
     }
 
+    public void createNewOrder(Order order) {
+        em.persist(order);
+    }
 }

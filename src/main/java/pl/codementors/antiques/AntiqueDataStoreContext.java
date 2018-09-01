@@ -49,20 +49,10 @@ public class AntiqueDataStoreContext {
     }
 
 
-    public boolean databaseIsEmpty() {
+    public int sizeOfDatabase() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Antique> query = cb.createQuery(Antique.class);
         query.from(Antique.class);
-        if (em.createQuery(query).getResultList().isEmpty()) {
-            return true;
-        }
-        return false;
-    }
-
-    public int sizeOfDatabase() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();//Builder for creating a query.
-        CriteriaQuery<Antique> query = cb.createQuery(Antique.class);//Query object declaring query return object.
-        query.from(Antique.class);//From which entity (table) data will be fetched.
         List<Antique> antiques = em.createQuery(query).getResultList();
         return antiques.size();
     }

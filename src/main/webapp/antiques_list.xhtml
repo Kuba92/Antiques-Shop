@@ -6,6 +6,7 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="/template.xhtml">
     <ui:define name="content">
+        <h:button value="basket"/>
         <h:dataTable var="antique" value="#{antiquesList.antiques}">
             <h:column>
                 #{antique.country.name}
@@ -23,6 +24,12 @@
                 <h:button outcome="antique_edit" value="edit">
                     <f:param name="antiqueId" value="#{antique.id}"/>
                 </h:button>
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton value="add" action="#{antiquesList.addAntiqueToBasket(antique)}"
+                                     disabled="#{antiquesList.addedToBasket(antique)}"/>
+                </h:form>
             </h:column>
         </h:dataTable>
         <h:form>
