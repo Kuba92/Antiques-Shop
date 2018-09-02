@@ -43,4 +43,8 @@ public class AntiquesList implements Serializable {
     public boolean addedToBasket (Antique antique) {
         return (basketView.getAntiquesInBasket().contains(antique) || antique.getAvailability() == Antique.Availability.NOT_AVALIBLE);
     }
+
+    public void removeAntiqueFromBasket(Antique antique) {
+        basketView.removeAntiqueFromBasket(antique);
+    }
 }

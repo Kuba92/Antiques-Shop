@@ -29,4 +29,8 @@ public class BasketView implements Serializable {
             antiquesInBasket.add(antique);
         }
     }
+
+    public void removeAntiqueFromBasket(Antique antique) {
+        antiquesInBasket.remove(antique);
+    }
 }

@@ -6,7 +6,7 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="/template.xhtml">
     <ui:define name="content">
-        <h:button value="basket"/>
+        <h:button value="basket" outcome="basket_view"/>
         <h:dataTable var="antique" value="#{antiquesList.antiques}">
             <h:column>
                 #{antique.country.name}
