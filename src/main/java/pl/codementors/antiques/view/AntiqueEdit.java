@@ -57,7 +57,7 @@ public class AntiqueEdit implements Serializable {
     }
 
     /**
-     * Returns countries by name as Select Item
+     * Returns countries by name as Select Item list
      */
     public List<SelectItem> getCountries() {
         if (countries == null) {
@@ -71,7 +71,7 @@ public class AntiqueEdit implements Serializable {
     }
 
     /**
-     *Returns availability as
+     *Returns availability as Select Item list
      */
     public List<SelectItem> getAvailability () {
         if (availabilityList == null) {
@@ -83,6 +83,9 @@ public class AntiqueEdit implements Serializable {
         return availabilityList;
     }
 
+    /**
+     * Saves antique
+     */
     public void saveAntique() {
         if (antique.getId() == 0) {
             store.createNewAntique(antique);

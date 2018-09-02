@@ -12,10 +12,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Bean for editing info about single antique
+ * Bean for seeing info about all antiques
  *
  * @author Kuba
  */
+
 @Named
 @ViewScoped
 public class AntiquesList implements Serializable {
@@ -28,6 +29,9 @@ public class AntiquesList implements Serializable {
 
     private List<Antique> antiques;
 
+    /**
+     *Returns all antiques
+     */
     public List<Antique> getAntiques() {
         if (antiques == null) {
             antiques = store.getAntiques();
@@ -35,6 +39,9 @@ public class AntiquesList implements Serializable {
         return antiques;
     }
 
+    /**
+     *Adds antique to basket
+     */
     public void addAntiqueToBasket(Antique antique) {
         if (!basketView.getAntiquesInBasket().contains(antique)) {
             basketView.addAntiqueToBasket(antique);
@@ -45,6 +52,9 @@ public class AntiquesList implements Serializable {
         return basketView.getAntiquesInBasket();
     }
 
+    /**
+     *Returns true if antique is already in busket
+     */
     public boolean addedToBasket (Antique antique) {
         return (basketView.getAntiquesInBasket().contains(antique) || antique.getAvailability() == Antique.Availability.NOT_AVALIBLE);
     }
