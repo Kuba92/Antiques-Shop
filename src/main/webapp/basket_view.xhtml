@@ -6,23 +6,30 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         template="/template.xhtml">
     <ui:define name="content">
+        <h:dataTable value="#{basketView.antiquesInBasket}" var="antique">
+            <h:column>
+                #{antique.country.name}
+            </h:column>
+            <h:column>
+                #{antique.yearOfProduction}
+            </h:column>
+            <h:column>
+                #{antique.price}
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton value="delete" action="#{basketView.removeAntiqueFromBasket(antique)}"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
         <h:form>
-            <h:dataTable value="#{basketView.antiquesInBasket}" var="antique">
-                <h:column>
-                    #{antique.country.name}
-                </h:column>
-                <h:column>
-                    #{antique.yearOfProduction}
-                </h:column>
-                <h:column>
-                    #{antique.price}
-                </h:column>
-                <h:column>
-                    <h:form>
-                        <h:commandButton value="delete" action="#{basketView.removeAntiqueFromBasket(antique)}"/>
-                    </h:form>
-                </h:column>
-            </h:dataTable>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="name"/>
+                <h:inputText value="#{basketView.client.name}"/>
+                <h:outputLabel value="surname"/>
+                <h:inputText value="#{basketView.client.surname}"/>
+            </h:panelGrid>
+            <h:commandButton value="submit" action="#{basketView.submitOrder}" disabled="#{empty(basketView.antiquesInBasket)}"/>
         </h:form>
     </ui:define>
 </ui:composition>

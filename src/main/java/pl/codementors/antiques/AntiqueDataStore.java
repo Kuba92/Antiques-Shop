@@ -2,12 +2,15 @@ package pl.codementors.antiques;
 
 
 import pl.codementors.antiques.model.Antique;
+import pl.codementors.antiques.model.Client;
 import pl.codementors.antiques.model.Country;
 import pl.codementors.antiques.model.Order;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
@@ -60,5 +63,20 @@ public class AntiqueDataStore {
 
     public void createNewOrder(Order order) {
         em.persist(order);
+    }
+
+    public void createNewClient(Client client) {
+        em.persist(client);
+    }
+
+    public Optional<Client> findClientByFullName (String name, String surname) {
+        TypedQuery<Client> query = em.createQuery("select a from Client a where a.name = :name and a.surname = :surname", Client.class);
+        query.setParameter("name", name);
+        query.setParameter("surname", surname);
+        try {
+            return Optional.of(query.getSingleResult());
+        } catch (NoResultException ex) {
+            return Optional.empty();
+        }
     }
 }
