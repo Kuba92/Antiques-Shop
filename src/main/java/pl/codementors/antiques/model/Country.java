@@ -4,14 +4,24 @@ package pl.codementors.antiques.model;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * Country class
+ * @author Kuba
+ */
 @Entity
 @Table(name = "countries")
 public class Country {
 
+    /**
+     * Country ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    /**
+     * Country name
+     */
     @Column
     private String name;
 
@@ -47,11 +57,19 @@ public class Country {
                 Objects.equals(name, country.name);
     }
 
+    /**
+     * Contry to hashcode method
+     * @return Country object as hashcode
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
 
+    /**
+     * TO string method
+     * @return Country as String
+     */
     @Override
     public String toString() {
         return "Country{" +

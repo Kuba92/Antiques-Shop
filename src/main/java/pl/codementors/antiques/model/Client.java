@@ -3,17 +3,30 @@ package pl.codementors.antiques.model;
 
 import javax.persistence.*;
 
+/**
+ * Client class
+ * @author Kuba
+ */
 @Entity
 @Table(name = "clients")
 public class Client {
 
+    /**
+     * Client ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    /**
+     * Client name
+     */
     @Column
     private String name;
 
+    /**
+     * Client surname
+     */
     @Column
     private String surname;
 

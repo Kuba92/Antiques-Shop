@@ -11,6 +11,11 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Bean for editing info about single antique
+ *
+ * @author Kuba
+ */
 @Named
 @ViewScoped
 public class AntiquesList implements Serializable {

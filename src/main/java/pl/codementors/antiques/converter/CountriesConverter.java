@@ -9,8 +9,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+/**
+ * Converter for country class.
+ * @author Kuba
+ */
 @FacesConverter("countriesConverter")
 public class CountriesConverter implements Converter {
+
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
         AntiqueDataStore store = CDI.current().select(AntiqueDataStore.class).get();

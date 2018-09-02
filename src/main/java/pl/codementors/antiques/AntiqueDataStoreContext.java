@@ -14,15 +14,28 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Class that adds content to database
+ * @author Kuba
+ */
 @Singleton
 @Startup
 public class AntiqueDataStoreContext {
 
+    /**
+     * Logger
+     */
     private static final Logger log = Logger.getLogger(AntiqueDataStoreContext.class.getName());
 
+    /**
+     * New Entity Manager
+     */
     @PersistenceContext
     private EntityManager em;
 
+    /**
+     * Method that adds content to DB, only if it is empty
+     */
     @PostConstruct
     public void init() {
         if (sizeOfDatabase() == 0) {
@@ -48,7 +61,10 @@ public class AntiqueDataStoreContext {
         }
     }
 
-
+    /**
+     * Method for checking the number of rows in the database in Antique table
+     * @return size of antique table
+     */
     public int sizeOfDatabase() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Antique> query = cb.createQuery(Antique.class);

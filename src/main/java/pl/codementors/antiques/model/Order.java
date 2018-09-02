@@ -3,18 +3,30 @@ package pl.codementors.antiques.model;
 
 import javax.persistence.*;
 
+/**
+ * Order class
+ */
 @Entity
 @Table(name = "orders")
 public class Order {
 
+    /**
+     * Order ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    /**
+     * Client order
+     */
     @ManyToOne
     @JoinColumn(name = "client", referencedColumnName = "id")
     private Client client;
 
+    /**
+     * Antique, whose order applies
+     */
     @OneToOne
     @JoinColumn(name = "antique", referencedColumnName = "id")
     private Antique antique;

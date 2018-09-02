@@ -3,6 +3,11 @@ package pl.codementors.antiques.model;
 
 import javax.persistence.*;
 
+/**
+ * Antique class
+ * @author Kuba
+ */
+
 @Entity
 @Table(name = "antiques")
 public class Antique {
@@ -12,20 +17,36 @@ public class Antique {
         NOT_AVALIBLE
     }
 
+    /**
+     * Antique ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    /**
+     * Antique year of production
+     */
     @Column
     private int yearOfProduction;
 
+    /**
+     * Antique country of origin
+     */
     @ManyToOne
     @JoinColumn(name = "country", referencedColumnName = "id")
     private Country country;
 
+    /**
+     * Price of antique
+     */
     @Column
     private int price;
 
+
+    /**
+     * Availability of antique
+     */
     @Column
     @Enumerated(EnumType.STRING)
     private Availability availability;

@@ -12,6 +12,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Bean to editing and adding new antiques
+ */
 @Named
 @ViewScoped
 public class AntiqueEdit implements Serializable {
@@ -27,14 +30,25 @@ public class AntiqueEdit implements Serializable {
 
     private int antiqueId;
 
+    /**
+     * Returns antique ID
+     * @return antique ID
+     */
     public int getAntiqueId() {
         return antiqueId;
     }
 
+    /**
+     * Sets antique ID
+     * @param antiqueId
+     */
     public void setAntiqueId(int antiqueId) {
         this.antiqueId = antiqueId;
     }
 
+    /**
+     * Gets single antique
+     */
     public Antique getAntique() {
         if (antique == null) {
             antique = store.getAntique(antiqueId);
@@ -42,6 +56,9 @@ public class AntiqueEdit implements Serializable {
         return antique;
     }
 
+    /**
+     * Returns countries by name as Select Item
+     */
     public List<SelectItem> getCountries() {
         if (countries == null) {
             countries = new ArrayList<SelectItem>();
@@ -53,6 +70,9 @@ public class AntiqueEdit implements Serializable {
         return countries;
     }
 
+    /**
+     *Returns availability as
+     */
     public List<SelectItem> getAvailability () {
         if (availabilityList == null) {
             availabilityList = new ArrayList<>();
